@@ -1,7 +1,6 @@
 import java.util.*;
 
 public class TwoPoints{
-    //Represents the node of list.
     public class Node{
         int data;
         Node next;
@@ -10,27 +9,19 @@ public class TwoPoints{
         }
     }
 
-    //Declaring head and tail pointer as null.
     public Node head = null;
     public Node tail = null;
 
-    //This function will add the new node at the end of the list.
     public void addAtEnd(int data){
-        //Create new node
         Node newNode = new Node(data);
-        //Checks if the list is empty.
         if(head == null) {
-            //If list is empty, both head and tail would point to new node.
             head = newNode;
             tail = newNode;
             newNode.next = head;
         }
         else {
-            //tail will point to new node.
             tail.next = newNode;
-            //New node will become new tail.
             tail = newNode;
-            //Since, it is circular linked list tail will points to head.
             tail.next = head;
         }
     }
@@ -66,16 +57,13 @@ public class TwoPoints{
         return slowPointer.data;
     }
 
-    //Displays all the nodes in the list
     public void display() {
         Node current = head;
         if(head == null) {
             System.out.println("List is empty");
         }
         else {
-            // System.out.println("Adding nodes to the end of the list: ");
             do{
-                //Prints each node by incrementing pointer.
                 System.out.print(" "+ current.data);
                 current = current.next;
             }while(current != head);
